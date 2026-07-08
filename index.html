@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innova S.A. | Sistema</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div id="login-view" class="container">
+        <div class="card">
+            <h1 class="logo">INNOVA S.A.</h1>
+            <p>Ingresa tus credenciales para acceder a la base de datos.</p>
+            <form id="login-form">
+                <input type="email" id="email" placeholder="usuario@innova.com" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="dashboard-view" class="container" style="display: none;">
+        <div class="dashboard-header">
+            <h2>Panel Administrativo - Innova S.A.</h2>
+            <button onclick="cerrarSesion()" class="btn-logout">Cerrar Sesión</button>
+        </div>
+        <div class="card table-container">
+            <h3>Directorio de Clientes</h3>
+            <table id="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>RIF/Cédula</th>
+                        <th>Teléfono</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-body">
+                    <tr><td colspan="4">Cargando datos de Supabase...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
