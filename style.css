@@ -1,15 +1,166 @@
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-body { background-color: #f1f5f9; color: #334155; }
-.container { display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; flex-direction: column; }
-.card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; }
-.logo { color: #1e3a8a; margin-bottom: 20px; font-size: 28px; letter-spacing: 1px; }
-input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #cbd5e0; border-radius: 6px; outline: none; }
-input:focus { border-color: #3b82f6; }
-button { width: 100%; padding: 14px; background: #2563eb; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 10px; }
-button:hover { background: #1d4ed8; }
-.btn-logout { background: #ef4444; width: auto; padding: 10px 20px; }
-.dashboard-header { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 900px; margin-bottom: 20px; }
-.table-container { max-width: 900px; text-align: left; }
-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-th { background: #f8fafc; padding: 12px; border-bottom: 2px solid #e2e8f0; color: #1e3a8a; }
-td { padding: 12px; border-bottom: 1px solid #e2e8f0; }
+/* --- Variables y Configuración General --- */
+:root {
+    --primary-color: #1e3a8a; /* Azul oscuro corporativo */
+    --secondary-color: #3b82f6; /* Azul brillante para botones */
+    --background-color: #f3f4f6; /* Gris claro de fondo */
+    --surface-color: #ffffff; /* Blanco para tarjetas */
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- Contenedor Principal (Login y Registro) --- */
+#auth-container {
+    background-color: var(--surface-color);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+h2 {
+    color: var(--text-main);
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+/* --- Formularios --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #1e40af;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- Dashboard (Panel de Control) --- */
+#dashboard {
+    background-color: var(--surface-color);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 900px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 15px;
+}
+
+.header h2 {
+    margin-bottom: 0;
+    color: var(--primary-color);
+    font-size: 22px;
+}
+
+.btn-logout {
+    background-color: #ef4444; /* Rojo para cerrar sesión */
+    padding: 8px 16px;
+    font-size: 14px;
+    margin-top: 0;
+}
+
+.btn-logout:hover {
+    background-color: #dc2626;
+}
+
+/* --- Tabla de Datos --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+    background-color: #f8fafc;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+}
+
+tr:hover {
+    background-color: #f1f5f9;
+}
