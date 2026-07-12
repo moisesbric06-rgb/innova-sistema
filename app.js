@@ -2,7 +2,6 @@
 const SUPABASE_URL = "https://onxielhlilspywjpfgwl.supabase.co";
 const SUPABASE_KEY = "sb_publishable_7nkMmoJlgzwV55x9PdvrVg_Mi-W_o3P";
 const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
 function mostrarRegistro() {
     document.getElementById('login-section').style.display = 'none';
     document.getElementById('register-section').style.display = 'block';
@@ -76,7 +75,6 @@ async function cargarClientes() {
     });
     document.getElementById('tabla-body').innerHTML = html;
 }
-
 // Cerrar Sesión
 function cerrarSesion() {
     document.getElementById('dashboard').style.display = 'none';
