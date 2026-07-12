@@ -3,44 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innova S.A. | Sistema</title>
+    <title>Innova S.A. - Sistema Web</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-    <div id="login-view" class="container">
-        <div class="card">
-            <h1 class="logo">INNOVA S.A.</h1>
-            <p>Ingresa tus credenciales para acceder a la base de datos.</p>
+
+    <div id="auth-container">
+        <h1>Innova S.A.</h1>
+        
+        <div id="login-section">
+            <h2>Iniciar Sesión</h2>
             <form id="login-form">
-                <input type="email" id="email" placeholder="usuario@innova.com" required>
-                <input type="password" id="password" placeholder="Contraseña" required>
-                <button type="submit">Iniciar Sesión</button>
+                <input type="email" id="login-email" placeholder="Correo" required>
+                <input type="password" id="login-password" placeholder="Contraseña" required>
+                <button type="submit">Entrar</button>
             </form>
+            <p>¿No tienes cuenta? <a href="#" onclick="mostrarRegistro()">Regístrate aquí</a></p>
+        </div>
+
+        <div id="register-section" style="display: none;">
+            <h2>Crear Usuario</h2>
+            <form id="register-form">
+                <input type="text" id="reg-nombre" placeholder="Nombre completo" required>
+                <input type="email" id="reg-email" placeholder="Correo" required>
+                <input type="password" id="reg-pass" placeholder="Contraseña" required>
+                <button type="submit">Registrar</button>
+            </form>
+            <p>¿Ya tienes cuenta? <a href="#" onclick="mostrarLogin()">Inicia sesión</a></p>
         </div>
     </div>
 
-    <div id="dashboard-view" class="container" style="display: none;">
-        <div class="dashboard-header">
-            <h2>Panel Administrativo - Innova S.A.</h2>
+    <div id="dashboard" style="display: none;">
+        <div class="header">
+            <h2>Panel de Control - Clientes</h2>
             <button onclick="cerrarSesion()" class="btn-logout">Cerrar Sesión</button>
         </div>
-        <div class="card table-container">
-            <h3>Directorio de Clientes</h3>
-            <table id="tabla-datos">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>RIF/Cédula</th>
-                        <th>Teléfono</th>
-                    </tr>
-                </thead>
-                <tbody id="tabla-body">
-                    <tr><td colspan="4">Cargando datos de Supabase...</td></tr>
+        <table id="tabla-clientes">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Empresa</th>
+                    <th>RIF</th>
+                    <th>Teléfono</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-body">
                 </tbody>
-            </table>
-        </div>
+        </table>
     </div>
 
     <script src="app.js"></script>
