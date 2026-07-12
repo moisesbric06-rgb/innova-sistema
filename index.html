@@ -2,55 +2,23 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innova S.A. - Sistema Web</title>
+    <title>Innova S.A.</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-
     <div id="auth-container">
         <h1>Innova S.A.</h1>
-        
-        <div id="login-section">
-            <h2>Iniciar Sesión</h2>
-            <form id="login-form">
-                <input type="email" id="login-email" placeholder="Correo" required>
-                <input type="password" id="login-password" placeholder="Contraseña" required>
-                <button type="submit">Entrar</button>
-            </form>
-            <p>¿No tienes cuenta? <a href="#" onclick="mostrarRegistro()">Regístrate aquí</a></p>
-        </div>
-
-        <div id="register-section" style="display: none;">
-            <h2>Crear Usuario</h2>
-            <form id="register-form">
-                <input type="text" id="reg-nombre" placeholder="Nombre completo" required>
-                <input type="email" id="reg-email" placeholder="Correo" required>
-                <input type="password" id="reg-pass" placeholder="Contraseña" required>
-                <button type="submit">Registrar</button>
-            </form>
-            <p>¿Ya tienes cuenta? <a href="#" onclick="mostrarLogin()">Inicia sesión</a></p>
-        </div>
+        <form id="login-form">
+            <input type="email" id="login-email" placeholder="Correo" required>
+            <input type="password" id="login-password" placeholder="Contraseña" required>
+            <button type="submit">Entrar</button>
+        </form>
     </div>
 
-    <div id="dashboard" style="display: none;">
-        <div class="header">
-            <h2>Panel de Control - Clientes</h2>
-            <button onclick="cerrarSesion()" class="btn-logout">Cerrar Sesión</button>
-        </div>
-        <table id="tabla-clientes">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Empresa</th>
-                    <th>RIF</th>
-                    <th>Teléfono</th>
-                </tr>
-            </thead>
-            <tbody id="tabla-body">
-                </tbody>
-        </table>
+    <div id="dashboard" style="display:none;">
+        <h2>Panel de Clientes</h2>
+        <div id="tabla-clientes"></div>
     </div>
 
     <script src="app.js"></script>
